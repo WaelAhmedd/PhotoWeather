@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/init_fragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.wael.android.photoweather.home.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+
+        <argument
+            android:name="temp"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_homeFragment_to_addWeather"
+            app:destination="@id/addWeather" />
+        <argument
+            android:name="city"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_homeFragment_to_showWeathers"
+            app:destination="@id/showWeathers" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/init_fragment"
+        android:name="com.wael.android.photoweather.home.fragments.InitFragment"
+        android:label="Home"
+        app:launchSingleTop="true"
+        tools:layout="@layout/fragment_location"
+        app:popUpTo="@+id/navigation"
+        app:popUpToInclusive="true"
+        >
+        <action
+            android:id="@+id/action_init_fragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:name="com.wael.android.photoweather.home.fragments.AddWeather"
+        android:label="Add Weather"
+        tools:layout="@layout/fragment_add_weather"
+        android:id="@+id/addWeather"
+        >
+        <argument
+            android:name="weather"
+            app:argType="com.wael.android.photoweather.home.data.Weather" />
+        <action
+            android:id="@+id/action_addWeather_to_init_fragment"
+            app:destination="@id/init_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showWeathers"
+        tools:layout="@layout/fragment_show_weather"
+        android:label="History"
+        android:name="com.wael.android.photoweather.home.fragments.ShowWeather"
+        />
+
+</navigation>

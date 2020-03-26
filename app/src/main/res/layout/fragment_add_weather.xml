@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<data>
+    <variable
+        name="weather"
+        type="com.wael.android.photoweather.home.data.Weather" />
+</data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".home.fragments.AddWeather">
+<ImageView
+    android:id="@+id/weatherImage"
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="18sp"
+    />
+ <EditText
+     android:id="@+id/weather_place"
+     android:layout_width="match_parent"
+     android:drawableEnd="@drawable/ic_placeholder"
+     android:layout_height="wrap_content"
+     android:textColor="#fff"
+
+     app:layout_constraintTop_toBottomOf="@id/weatherImage"
+     android:padding="5dp"
+     android:textColorHint="#fff"
+     android:textSize="18dp"
+     android:drawablePadding="15dp"
+     app:layout_constraintStart_toStartOf="parent"
+     android:layout_margin="10sp"
+     android:hint="Enter the Place"
+     android:text="@={weather.place}"
+     />
+
+    <EditText
+        android:id="@+id/temp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:layout_marginStart="10dp"
+        android:drawableEnd="@drawable/ic_cold"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="9dp"
+        android:hint="Enter Weather Temp"
+        android:padding="5dp"
+
+        android:text="@={weather.temp}"
+        android:textColorHint="#fff"
+        android:drawablePadding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_place" />
+
+    <EditText
+        android:id="@+id/weather_condition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_rain"
+        android:drawablePadding="5dp"
+        android:textColor="#fff"
+        app:layout_constraintTop_toBottomOf="@id/temp"
+        android:padding="5dp"
+        android:textColorHint="#fff"
+        android:textSize="18dp"
+        android:text="@={weather.weatherCondition}"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="10sp"
+        android:hint="Enter the Weather Condition"
+        />
+    <Button
+        android:id="@+id/upload_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Image"
+        android:textSize="13sp"
+        android:background="@drawable/ic_clouddd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_condition"
+        android:layout_margin="15dp"/>
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:text="Save"
+        android:background="@drawable/ic_clouddd"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_condition"
+        android:layout_margin="15dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
